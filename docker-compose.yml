@@ -1,0 +1,29 @@
+version: "3.9"
+
+services: 
+  database_QFinance_Service: 
+    image: postgres 
+    container_name: database_QFinance
+    restart: always
+    ports: 
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=QFinance
+      - POSTGRES_PASSWORD=Ab12345@ 
+      - POSTGRES_DB=QFinance
+    volumes: 
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: qfinancesApp
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
+    links: 
+      - database_QFinance_Service
+    depends_on: 
+      - database_QFinance_Service
+volumes:
+  pgdata:
+    driver: local

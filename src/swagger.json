@@ -1,0 +1,129 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Qfinances Documentation",
+        "description": "This is an API for finances APP",
+        "version": "1.0.0",
+        "contact": {
+            "email": "pedrohlimadev@gmail.com"
+        }
+    },
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Create a user",
+                "description": "Create a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "name": "User name sample",
+                                "email": "User email sample",
+                                "password": "User password sample"
+                            }
+                            }
+
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/sessions": {
+            "post": {
+                "tags": ["Sessions"],
+                "summary": "Authenticate user",
+                "description": "Authenticate a user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "descritpion": "Sucess"
+                    },
+                    "400": {
+                        "description": "email or password incorrect"
+                    }
+                }
+            }
+        },
+        "/budget": {
+            "tags": ["Budget"],
+                "summary": "Create Budget",
+                "description": "Create Budget",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "budget": {
+                                        "type": "number"
+                                    },
+                                    "period": {
+                                        "type": "string"
+                                    } 
+                                },
+                                "example": {
+                                    "budget": 1500,
+                                    "period": "Mensal"
+                                }
+                            },
+                            "components":{
+                               "bearerAuth": {
+                                   "type": "http",
+                                   "scheme": "bearer"
+                               }
+                            }
+                                
+                                 
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "descritpion": "Sucess"
+                    },
+                    "400": {
+                        "description": "Enter with 'Mensal' or 'Anual'"
+                    },
+                    "401": {
+                        "description": "Invalid Token!"
+                    }
+                }
+        }
+    }
+}
+

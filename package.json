@@ -1,0 +1,52 @@
+{
+  "name": "finances_controller_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Agencia-CodeX/finances_controller_app.git",
+  "author": "MiguelMarcola <miguelmarcola@gmail.com, pedrohlimadev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "seed:admin": "ts-node-dev src/shared/infra/http/typeorm/seed/admin.ts"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/swagger-ui-express": "^4.1.3",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.0.4",
+    "dayjs": "^1.11.0",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "multer": "^1.4.4",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "swagger-ui-express": "^4.3.0",
+    "tsconfig-paths": "^3.14.1",
+    "tsyringe": "^4.6.0",
+    "typeorm": "^0.2.45",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/multer": "^1.4.7",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  }
+}
